@@ -43,8 +43,8 @@ the above were used to create the three sets of images: training_set.fits, valid
 - Basic UNet Architecture (test, NOT USED)
 - CMB Reconstructed Model (test, NOT USED)
 - ICL Cirrus Model (USED HERE), includes:
-  -model
-  -loading input data as different input types (select input mode depending on what we want to train on)
+  - model
+  - loading input data as different input types (select input mode depending on what we want to train on)
   - 'trial run' trains for 600 epochs and saves the model every 200, keeps track of training and validation loss
   - the above are plotted then, as well as some examples from the validation set
   - opening models for evaluation after saving them, plotted some results
