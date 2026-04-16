@@ -51,7 +51,7 @@ Image generation:
   *** also note that the plotting, comparisons etc are still a bit messy, and some of them may not be 100% correct (ex. comparing a model results with validation of wrong input type)
   (i was carefull about the ones i used in the presentations but the notebook is still a bit messy so there might be old tests still there:)
 
-  The results of the training (5 models for 5 different input modes) are uploaded here as well and can be directly opened using the notebook without training again.
+  The results of the training (5 models for 5 different input modes) can be directly opened using the notebook without training again.
   They are named according to input mode and #of epochs (ex. model_extended_keep_bcg_600.pth)
       
     
