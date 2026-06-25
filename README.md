@@ -51,12 +51,28 @@ the above were used to create the three sets of images: training_set.fits, valid
   - comparison 
   - resuming training (i haven't yet used it, i was always training in one go, but it should be ok)
 
-*** also note that the plotting, comparisons etc are still a bit messy, and some of them may not be 100% correct (ex. comparing a model results with validation of wrong input type)\
-(i was carefull about the ones i used in the presentations but the notebook is still a bit messy so there might be old tests still there:)
 
 The results of the training (5 models for 5 different input modes) can be directly opened using the notebook without training again.\
 They are named according to input mode and #of epochs (ex. model_extended_keep_bcg_600.pth)
 
+
+    ## new masking with source extractor
+    [...]
+
+    # Evaluation of training results
+
+    ### item_evaluation.py
+    Evaluation of the predicted ICL+BCG profile of each individual item of the validation set (one version of a halo), including:
+      - Finding the centers of prediction and target, and their offset
+      - Calculating the overall surface brightness of ICL+BCG in the predicted and target images
+      - Reduced chi2 (tbd)
+      - Power spectra (to caompare with cirrus input)
+
+    ### trial_evaluation.py
+    Evaluation of all items in one trial.\
+    Overall statistics of the above, also after dividing the items in low/high-mass and low/high-redshift bins.
+
+  
     
                       
                 
