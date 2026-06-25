@@ -56,24 +56,24 @@ The results of the training (5 models for 5 different input modes) can be direct
 They are named according to input mode and #of epochs (ex. model_extended_keep_bcg_600.pth)
 
 
-    ## new masking with source extractor
-    [...]
+  ## new masking with source extractor
+  [...]
 
-    # Evaluation of training results
+  # Evaluation of training results
 
-    ### item_evaluation.py
-    Evaluation of the predicted ICL+BCG profile of each individual item of the validation set (one version of a halo), including:
-      - Finding the centers of prediction and target, and their offset
-      - Calculating the overall surface brightness of ICL+BCG in the predicted and target images
-      - Reduced chi2 (tbd)
-      - Power spectra (to caompare with cirrus input)
+  ### item_evaluation.py
+  Evaluation of the predicted ICL+BCG profile of each individual item of the validation set (one version of a halo), including:
+    - Finding the centers of prediction and target, and their offset
+    - Calculating the overall surface brightness of ICL+BCG in the predicted and target images
+    - Reduced chi2 (tbd)
+    - Power spectra (to caompare with cirrus input)
 
-    ### trial_evaluation.py
-    Evaluation of all items in one trial.\
-    Overall statistics of the above, also after dividing the items in low/high-mass and low/high-redshift bins.
+  ### trial_evaluation.py
+  Evaluation of all items in one trial.\
+  Overall statistics of the above, also after dividing the items in low/high-mass and low/high-redshift bins.
+
 
   
-    
                       
                 
 
