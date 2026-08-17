@@ -7,8 +7,8 @@ includes all of the information for the halo_ids we use (mass, redshift, positio
 
 ### main_v2_rotation.py 
 
-is used to generate the cluster images (it also calls functions from: galaxy_class.py, icl.py, utils.py) 
-for each halo_id we include at the end of the script: 
+is used to generate the cluster images (it also calls functions from: galaxy_class.py for individual galaxies, icl.py for the ICL profile, utils.py for miscellaneous functions).
+For each halo_id that we include at the end of the script: 
 - it loads the flagship file for the specific cluster 
 - finds the BCG (galaxy closest to the center out of 3 brightest)
 - creates the coordinate system
@@ -19,7 +19,7 @@ for each halo_id we include at the end of the script:
 - calculates PA and ellipticity of satellite galaxies (5 versions according to new galaxy positions distribution), applies it to the ICL, makes profile
 - saves ICL canvases (5), as well as the e and PA values
 
-### final_image_construction.py
+### final_image_construction.py (used in Cycle 1)
 
 is then used to compose the individual galaxies, halos and ICL and also add background and noise (also cirrus in the future)
 - it applies necessary image corrections (to undo flux normalization we had originally done to plot with galsim and also adjust flux to pixelscale)
@@ -33,6 +33,15 @@ is then used to compose the individual galaxies, halos and ICL and also add back
 
 the above were used to create the three sets of images: training_set.fits, validation_set.fits, mini_training_set.fits\
 (mini is part of the full training set, while the validation set is completely independent (no shared clusters or variations of them with any of the training sets))
+
+### main_v2_rotation.py (used in Cycle 2)
+
+is a more recent version of the above, that uses both the ICL and BCG in the target image and applies all of the image augmentation
+
+
+### make_segm_maps.py (used in Cycle 3)
+New masking with Source Extractor. Making the new segmentation maps for each item of the training/validation set, that will be saved and applied later.
+
 
 
 
@@ -52,12 +61,7 @@ the above were used to create the three sets of images: training_set.fits, valid
   - resuming training (i haven't yet used it, i was always training in one go, but it should be ok)
 
 
-The results of the training (5 models for 5 different input modes) can be directly opened using the notebook without training again.\
-They are named according to input mode and #of epochs (ex. model_extended_keep_bcg_600.pth)
 
-
-## new masking with source extractor
-[...]
 
 # Evaluation of training results
 
@@ -65,16 +69,14 @@ They are named according to input mode and #of epochs (ex. model_extended_keep_b
 Evaluation of the predicted ICL+BCG profile of each individual item of the validation set (one version of a halo), including:
   - Finding the centers of prediction and target, and their offset
   - Calculating the overall surface brightness of ICL+BCG in the predicted and target images
+  - Weighted radial residuals
+  - Power spectra (to compare with cirrus input)
   - Reduced chi2 (tbd)
-  - Power spectra (to caompare with cirrus input)
+
 
 ### trial_evaluation.py
 Evaluation of all items in one trial.\
-Overall statistics of the above, also after dividing the items in low/high-mass and low/high-redshift bins.
-
-
-
-                    
+Overall statistics of the above, also after dividing the items in low/high-mass and low/high-redshift bins.                    
                 
 
   
